@@ -10,3 +10,7 @@ configureStore - to simplify store creation (with redux dev tool, redux-thunk)
     - your middleware
     - optional store enhancers
     - a preloaded state
+
+createAction - have action creators and named actions for almost every behaviour of the app
+
+
