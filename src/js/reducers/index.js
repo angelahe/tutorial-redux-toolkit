@@ -20,8 +20,10 @@ function authReducer(state = authState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
     // return the next state
+      return Object.assign({}, state, { token: action.payload });
     case LOGIN_FAILED:
     // return the next state
+      return Object.assign({}, state, { error: action.payload });
     default:
       return state;
   }
