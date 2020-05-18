@@ -13,4 +13,7 @@ configureStore - to simplify store creation (with redux dev tool, redux-thunk)
 
 createAction - have action creators and named actions for almost every behaviour of the app
 
+createReducer - takes initial state and mapping object where:
+    - properties in the mapping are action types
+    - values are reducing functions
 

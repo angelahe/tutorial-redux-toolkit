@@ -1,30 +1,25 @@
-// NAMED ACTIONS AND ACTION CREATORS
-const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-const LOGIN_FAILED = "LOGIN_FAILED";
-
-function loginSuccess(payload) {
-  return { type: LOGIN_SUCCESS, payload };
-}
-
-function loginFailed(payload) {
-  return { type: LOGIN_FAILED, payload };
-}
-
-// Reducer
-const authState = {
-  token: "",
-  error: "",
-};
-
-function authReducer(state = authState, action) {
-  switch (action.type) {
-    case LOGIN_SUCCESS:
-    // return the next state
-      return { ...state, token: action.payload };
-    case LOGIN_FAILED:
-    // return the next state
-      return { ...state, error: action.payload };
-    default:
-      return state;
-  }
-}
+import {
+    configureStore,
+    getDefaultMiddleware,
+    createAction,
+    createReducer,
+  } from "@reduxjs/toolkit";
+  
+  const loginSuccess = createAction("LOGIN_SUCCESS");
+  const loginFailed = createAction("LOGIN_FAILED");
+  
+  const authState = {
+    token: "",
+    error: "",
+  };
+  
+  const authReducer = createReducer(authState, {
+    [loginSuccess]: (state, action) => {
+      // return the next state
+      state.token = action.payload;
+    },
+    [loginFailed]: (state, action) => {
+      // return the next state
+      state.error = action.payload;
+    },
+  });
